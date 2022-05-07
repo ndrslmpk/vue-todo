@@ -3,17 +3,35 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" href="/src/assets/ndrslmpk-logo.png">
+    <title>	&copy; Ndrslmpk</title>
     <script type="module" src="/src/main.js"></script>
   </head>
   <body>
     <div id="app">
-      <h1>This is my vue app</h1>
       <section id="vue-app">
-        <p>Yes</p>
-        <p>{{ description }}</p>
+        <!-- Here runs Vue3 -->
+        <h2>Vue todo list</h2>
+        <button id="" v-on:click="toggleDarkmode()">Darkmode</button>
+        <span>Darkmode is {{darkmode ? "on" : "off" }}</span>
+        <br>
+        <button id="add-todo-button" v-on:click="addTodo()">Add Todo</button>
+        <ul id="todolist">
+          <li>
+            <input type="checkbox" name="todo" id="" v-bind:checked="todos[0].done">
+            <span>{{todos[0].description}}</span>
+          </li>
+          <li>
+            <input type="checkbox" name="todo" id="" v-bind:checked="todos[1].done">
+            <span>{{todos[1].description}}</span>
+          </li>  
+        </ul>
+
+        <footer>
+          <p>find my github account @<a v-bind:href="github.link">{{github.name}}</a></p>
+        </footer>
       </section>
+
     </div>
   </body>
 </html>
