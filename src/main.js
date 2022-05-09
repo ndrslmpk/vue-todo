@@ -18,7 +18,8 @@ const app = createApp({
       {
         description: "I teach myself every day",
         done: true,
-      }]
+      }],
+      counter: 2,
     }
   },
   methods: {
@@ -34,7 +35,7 @@ const app = createApp({
       var newitemLiInput = document.createElement('input');
       newitemLiInput.type = 'checkbox';
       newitemLiInput.name = 'todo';
-      newitemLiInput.checked = false;
+      newitemLiInput.checked = false; 
 
       var newitemLiSpan = document.createElement('span');
       newitemLiSpan.textContent = 'newTodo';

@@ -15,7 +15,7 @@
         <button id="" v-on:click="toggleDarkmode()">Darkmode</button>
         <span>Darkmode is {{darkmode ? "on" : "off" }}</span>
         <br>
-        <button id="add-todo-button" v-on:click="addTodo()">Add Todo</button>
+        <button id="add-todo-button" v-on:click="addTodo(); counter++;" >Add Todo</button>
         <ul id="todolist">
           <li>
             <input type="checkbox" name="todo" id="" v-bind:checked="todos[0].done">
@@ -26,6 +26,7 @@
             <span>{{todos[1].description}}</span>
           </li>  
         </ul>
+        <p>You currently have {{counter}} Todos</p>
 
         <footer>
           <p>find my github account @<a v-bind:href="github.link">{{github.name}}</a></p>
