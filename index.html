@@ -18,16 +18,39 @@
         <button id="add-todo-button" v-on:click="addTodo(); counter++;" >Add Todo</button>
         <ul id="todolist">
           <li>
-            <input type="checkbox" name="todo" id="" v-bind:checked="todos[0].done">
-            <span>{{todos[0].description}}</span>
+            <input type="checkbox" name="todo" id="" v-bind:checked="staticTodos[0].done">
+            <span>{{staticTodos[0].description}}</span>
           </li>
           <li>
-            <input type="checkbox" name="todo" id="" v-bind:checked="todos[1].done">
-            <span>{{todos[1].description}}</span>
-          </li>  
+            <input type="checkbox" name="todo" id="" v-bind:checked="staticTodos[1].done">
+            <span>{{staticTodos[1].description}}</span>
+          </li>
+        </ul>
+
+        <h3>Vue Todo List</h3>  
+        <form action="">
+          <label for="description">Description:</label>
+          <input type="text" name="description" id="">
+          <label for="done">Have you done it already?</label>
+          <input type="checkbox" name="done" id="">
+          <button id="" v-on:click="addVueTodo($event)">Add Vue Todo</button>
+        </form>
+        <ul>
+          <li v-for="todo in dynamicTodos" v-bind:key="todo.id">
+            <input type="checkbox" name="todo" id="" v-bind:checked="todo.done">
+            {{ todo.description }}
+          </li>
         </ul>
         <p>You currently have {{counter}} Todos</p>
-
+        <h3>Github Actions</h3>
+          <label for="github-set-oneway-name">One-Way Data Binding (Setter) for github.name</label>
+          <input type="text" v-bind:value="github.name" v-on:input="setGithub($event, '')" name="github-set-oneway-name" id="">
+          <br>
+          <p>See in the source code, that v-model is a shortcut for the vue-directives v-bind:value and v-on:input</p>
+          <label for="github-set-twoway-name">Two-Way Data Binding (V-Model) for github.name</label>
+          <input type="text" v-model="github.name" name="github-set-twoway-name" id="">
+          <br>
+          <button v-on:click="resetGithub">Reset Github Name</button>
         <footer>
           <p>find my github account @<a v-bind:href="github.link">{{github.name}}</a></p>
         </footer>
