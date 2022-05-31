@@ -4,8 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="/src/assets/ndrslmpk-logo.png">
+    <link rel="stylesheet" href="/src/styles/styles.css">
     <title>	&copy; Ndrslmpk</title>
     <script type="module" src="/src/main.js"></script>
+
   </head>
   <body>
     <div id="app">
@@ -36,20 +38,22 @@
           <button id="" v-on:click="addVueTodo($event)">Add Vue Todo</button>
         </form>
         <ul>
-          <li v-for="todo in dynamicTodos" v-bind:key="todo.id">
-            <input type="checkbox" name="todo" id="" v-bind:checked="todo.done">
-            {{ todo.description }}
+          <li v-for="todo in dynamicTodos" v-bind:key="todo.id" :class="{todo: true}">
+            <input type="checkbox" name="todo" id="" :checked="todo.done" @click="toggleCheck(todo)">
+            <span :class="{done: todo.done}">
+              {{ todo.description }}
+            </span>  
           </li>
         </ul>
         <p>You currently have {{counter}} Todos</p>
         <h3>Github Actions</h3>
           <label for="github-set-oneway-name">One-Way Data Binding (Setter) for github.name</label>
           <input type="text" v-bind:value="github.name" v-on:input="setGithub($event, '')" name="github-set-oneway-name" id="">
-          <br>
+            <br>
           <p>See in the source code, that v-model is a shortcut for the vue-directives v-bind:value and v-on:input</p>
           <label for="github-set-twoway-name">Two-Way Data Binding (V-Model) for github.name</label>
           <input type="text" v-model="github.name" name="github-set-twoway-name" id="">
-          <br>
+            <br>
           <button v-on:click="resetGithub">Reset Github Name</button>
         <footer>
           <p>find my github account @<a v-bind:href="github.link">{{github.name}}</a></p>

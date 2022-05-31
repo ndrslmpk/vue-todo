@@ -78,9 +78,16 @@ const app = createApp({
         done: done,
       });
     },
+    setGithub(event, githubName) {
+      this.github.name = '' 
+    },
     resetGithub() {
       this.github.name = ''      
     },
+    toggleCheck(todo) {
+      console.log(todo);
+      this.dynamicTodos[todo.id-1].done = !this.dynamicTodos[todo.id-1].done
+    }
   },
 });
 
